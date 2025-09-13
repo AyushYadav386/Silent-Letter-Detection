@@ -141,3 +141,15 @@ function checkWord() {
 
     document.getElementById("result").innerHTML = `Result: ${result}`;
 }
+// Speech function to pronounce the word
+function speakWord() {
+    const word = document.getElementById("wordInput").value;
+    if (!word) return;
+
+    const utterance = new SpeechSynthesisUtterance(word);
+    utterance.rate = 1;       // Speed (0.5-2)
+    utterance.pitch = 1;      // Pitch (0-2)
+    utterance.lang = 'en-US'; // Language
+
+    window.speechSynthesis.speak(utterance);
+}
